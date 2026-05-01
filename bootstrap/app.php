@@ -10,6 +10,7 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+<<<<<<< HEAD
    ->withMiddleware(function (Middleware $middleware) {
     $middleware->validateCsrfTokens(except: [
         'login', 
@@ -17,6 +18,11 @@ return Application::configure(basePath: dirname(__DIR__))
         'login/*'
     ]);
 })
+=======
+    ->withMiddleware(function (Middleware $middleware): void {
+        //
+    })
+>>>>>>> origin/dev2
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();

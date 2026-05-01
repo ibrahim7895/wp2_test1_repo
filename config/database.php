@@ -98,6 +98,7 @@ return [
             'sslmode' => env('DB_SSLMODE', 'prefer'),
         ],
 
+<<<<<<< HEAD
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
@@ -144,6 +145,7 @@ return [
 
     'redis' => [
 
+<<<<<<< HEAD
         'client' => env('REDIS_CLIENT', 'phpredis'),
 
         'options' => [
@@ -179,5 +181,4 @@ return [
         ],
 
     ],
-
 ];

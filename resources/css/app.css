@@ -8,4 +8,74 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+<<<<<<< HEAD
 }
+=======
+}*/
+/* 🌌 خلفية */
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+/* 📦 الحاوية */
+.form-container {
+    width: 80%;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* 🏷️ العنوان */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #facc15;
+}
+
+/* 🧱 شبكة الفورم */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* ✏️ الحقول */
+.form-grid input,
+.form-grid select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #f1f5f9;
+    color: #000;
+}
+
+/* 📂 ملف */
+.form-grid input[type="file"] {
+    background: #fff;
+}
+
+/* 🔘 زر */
+.form-container button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #facc15;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* ✨ hover */
+input:hover {
+    background: #eab308;
+    transform: scale(1.05);   
+}
+>>>>>>> origin/dev2
