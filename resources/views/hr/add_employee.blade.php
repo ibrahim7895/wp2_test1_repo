@@ -24,7 +24,7 @@
             <input name="lastName" placeholder="Last Name" class="form-control mb-3" required>
             <input name="father" placeholder="Father Name" class="form-control mb-3" required>
             <input name="mother" placeholder="mother Name" class="form-control mb-3">
-            <input name="birthday" placeholder="birthday dd/mm/yy" class="form-control mb-3">
+            <input type="date" name="birthday" placeholder="birthday dd/mm/yy" class="form-control mb-3">
             <input name="gender" placeholder="gender" class="form-control mb-3">
             <input name="national_number" placeholder="National Number" class="form-control mb-3 required">
             <input name="phone" placeholder="Phone" class="form-control mb-3">

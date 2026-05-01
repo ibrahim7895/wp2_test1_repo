@@ -26,7 +26,7 @@ class AuthController extends Controller
         $username = $request->username;
         $password = $request->password;
 
-        // 🔥 جلب المستخدم من DB
+        //جلب المستخدم من DB
         $user = DB::table('user')
             ->where('username', $username)
             ->first();

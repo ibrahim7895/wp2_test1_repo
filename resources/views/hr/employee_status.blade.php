@@ -27,14 +27,14 @@
                 <form method="POST" action="{{ route('hr.changeStatus', $emp->personal_id) }}">
                     @csrf
 
-                    <select name="employee_status_id" class="form-control mb-1">
-
-                        <option value="1" {{ $emp->employee_status_id == 1 ? 'selected' : '' }}>current employee</option>
-                        <option value="2" {{ $emp->employee_status_id == 2 ? 'selected' : '' }}>dismissed</option>
-                        <option value="3" {{ $emp->employee_status_id == 3 ? 'selected' : '' }}>Resigned</option>
-                        <option value="4" {{ $emp->employee_status_id == 4 ? 'selected' : '' }}>Paid leave</option>
-
-                    </select>
+                   <select name="employee_status_id" class="form-control">
+                    @foreach($statuses as $status)
+                        <option value="{{ $status->employee_status_id }}"
+                            {{ $emp->employee_status_id == $status->employee_status_id ? 'selected' : '' }}>
+                            {{ $status->status }}
+                        </option>
+                    @endforeach
+                </select>
 
                     <button class="btn btn-warning btn-sm">Update</button>
                 </form>

@@ -88,7 +88,22 @@ button:hover{
             <td>{{ $emp->department->department_name ?? 'No Department' }}</td>
             <td>{{ $emp->salary }}</td>
             <td>
-                    <a href="{{ route('hr.show', $emp->personal_id) }}" class="btn btn-info btn-sm">View Details</a>
+                    <button
+                        type="button"
+                        class="btn btn-info btn-sm"
+                        onclick="showDetails(
+                            '{{ $emp->firstName }}',
+                            '{{ $emp->lastName }}',
+                            '{{ $emp->father }}',
+                            '{{ $emp->mother }}',
+                            '{{ $emp->phone }}',
+                            '{{ $emp->email }}',
+                            '{{ $emp->address }}',
+                            '{{ $emp->salary }}',
+                            '{{ $emp->department_name ?? 'No Department' }}'
+                        )">
+                        View Details
+                    </button>
                     <a href="{{ route('hr.edit', $emp->personal_id) }}" class="btn btn-primary btn-sm">Edit</a>
 
                     <form method="POST" action="{{ route('hr.delete', $emp->personal_id) }}" style="display:inline;">
@@ -105,4 +120,49 @@ button:hover{
     </tbody>
 </table>
 
+<div id="detailsModal" style="display:none; 
+    position:fixed; 
+    top:20%; 
+    left:30%; 
+    width:40%; 
+    background:white; 
+    border:1px solid #ccc; 
+    padding:20px; 
+    box-shadow:0 0 10px gray;
+    z-index:999;">
+
+    <h3>Employee Details</h3>
+
+    <p><strong>First Name:</strong> <span id="d_firstName"></span></p>
+    <p><strong>Last Name:</strong> <span id="d_lastName"></span></p>
+    <p><strong>Father Name:</strong> <span id="d_father"></span></p>
+    <p><strong>Mother Name:</strong> <span id="d_mother"></span></p>
+    <p><strong>Phone:</strong> <span id="d_phone"></span></p>
+    <p><strong>Email:</strong> <span id="d_email"></span></p>
+    <p><strong>Address:</strong> <span id="d_address"></span></p>
+    <p><strong>Salary:</strong> <span id="d_salary"></span></p>
+    <p><strong>Department:</strong> <span id="d_department"></span></p>
+
+    <button onclick="closeDetails()">Close</button>
+</div>
+
+<script>
+function showDetails(firstName, lastName, father, mother, phone, email, address, salary, department) {
+    document.getElementById('d_firstName').innerText = firstName;
+    document.getElementById('d_lastName').innerText = lastName;
+    document.getElementById('d_father').innerText = father;
+    document.getElementById('d_mother').innerText = mother;
+    document.getElementById('d_phone').innerText = phone;
+    document.getElementById('d_email').innerText = email;
+    document.getElementById('d_address').innerText = address;
+    document.getElementById('d_salary').innerText = salary;
+    document.getElementById('d_department').innerText = department;
+
+    document.getElementById('detailsModal').style.display = 'block';
+}
+
+function closeDetails() {
+    document.getElementById('detailsModal').style.display = 'none';
+}
+</script>
 @endsection

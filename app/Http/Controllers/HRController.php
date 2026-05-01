@@ -127,7 +127,7 @@ public function create()
             $q->where('department_id', $request->department_id);
         })
 
-        ->paginate(5)
+        ->paginate(10)
         ->appends($request->query());
 
     $departments = Department::all();
@@ -231,20 +231,20 @@ public function create()
             return "Unauthorized";
         }
 
-        $employee = Employee::findOrFail($id);
-
-        $employee->update([
-            'employee_status_id' => $request->employee_status_id
+        DB::statement('CALL ChangeEmployeeStatus(?, ?)', [
+            $id,
+            $request->employee_status_id
         ]);
 
         return back()->with('success', 'Status Updated Successfully');
     }
 
-    public function statusPage()
+   public function statusPage()
     {
         $employees = Employee::with('status')->get();
+        $statuses = EmployeeStatus::all();
 
-        return view('hr.employee_status', compact('employees'));
+        return view('hr.employee_status', compact('employees', 'statuses'));
     }
 
     public function show($id)

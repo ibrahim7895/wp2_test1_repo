@@ -2,24 +2,40 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+ use Illuminate\Database\Seeder;
+ use Illuminate\Support\Facades\DB;
+class DatabaseSeeder extends Seeder { 
+    public function run(): void { 
+         DB::table('ROLE')->insert([
+            ['type' => 'Manager'],
+            ['type' => 'Supervisor'], 
+            ['type' => 'Employee'], ]);
 
-class DatabaseSeeder extends Seeder
-{
-    use WithoutModelEvents;
+        DB::table('DEPARTMENT')->insert([ 
+            ['department_name' => 'HR'], 
+            ['department_name' => 'IT'], 
+            ['department_name' => 'Finance'], 
+            ['department_name' => 'Sales'], ]);
 
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
-        // User::factory(10)->create();
+        DB::table('EMPLOYEE_STATUS')->insert([
+            ['status' => 'Current Employee'], 
+            ['status' => 'Resigned'],
+            ['status' => 'Dismissed'], 
+            ['status' => 'Paid Leave'], ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-    }
+
+            DB::table('users')->insert([ [ 
+                'username' => 'hr_user',
+                'password' => '123456',
+                'account_status' => 'hr_manager',],
+                [ 'username' => 'employee_user',
+                'password' => '123456',
+                 'account_status' => 'employee', ],
+                ]); 
+                
+        
+                
+                
+        }
+
 }
